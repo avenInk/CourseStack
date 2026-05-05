@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Seguimiento de Cursos Local</title>
+  <meta name="description" content="Plataforma local de aprendizaje musical">
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="css/styles.css?v=6">
+</head>
+<body>
+  <div class="shell">
+    <header class="header">
+      <div class="header-left">
+        <button class="icon-btn" id="backBtn" title="Volver a los cursos" style="display:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        </button>
+        <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" title="Menu" style="display:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+        <div class="header-logo">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
+        </div>
+        <span class="header-brand">Seguimiento de Cursos (Local)</span>
+      </div>
+      <div class="header-right">
+        <button class="icon-btn" id="themeToggle" title="Cambiar tema">
+          <svg id="themeIconMoon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
+          <svg id="themeIconSun" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10.5H1v2h3v-2zm9-9.95h-2V3.5h2V.55zm7.45 3.91l-1.41-1.41-1.79 1.79 1.41 1.41 1.79-1.79zm-3.21 13.7l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zM20 10.5v2h3v-2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16.95h2V19.5h-2v2.95zm-7.45-3.91l1.41 1.41 1.79-1.8-1.41-1.41-1.79 1.8z"/></svg>
+        </button>
+        <button class="icon-btn" id="historyBtn" title="Historial">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 3a9 9 0 1 0 8.95 10h-2.02A7 7 0 1 1 13 5c1.93 0 3.68.78 4.95 2.05L15 10h7V3l-2.62 2.62A8.97 8.97 0 0 0 13 3zm-1 5v5l4.2 2.5 1-1.6-3.2-1.9V8h-2z"/></svg>
+        </button>
+        <button class="icon-btn" id="resetBtn" title="Reiniciar progreso">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="home-view" id="homeView">
+      <div class="home-container">
+        <h1 class="home-title">Tus Cursos</h1>
+        <p class="home-subtitle">Selecciona un curso para continuar aprendiendo</p>
+        <div class="course-grid" id="courseGrid">
+          <div class="loading-spinner"><div class="spinner"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="layout" id="playerView" style="display:none;">
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-course-title" id="sidebarCourseTitle"></div>
+        <div class="sidebar-scroll" id="courseTree"></div>
+        <div class="sidebar-stats" id="statsBar"></div>
+      </aside>
+
+      <main class="main" id="mainContent">
+        <div class="empty-state" id="emptyState">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
+          <h2>Modulo seleccionado</h2>
+          <p>Elige una leccion del menu lateral</p>
+        </div>
+
+        <div class="player-area" id="playerArea" style="display:none;">
+          <video id="videoEl" playsinline webkit-playsinline preload="metadata"></video>
+          <audio id="audioEl" preload="metadata"></audio>
+          <div class="next-overlay" id="nextOverlay" style="display:none;">
+            <div class="next-card">
+              <div class="next-count" id="nextCount">3</div>
+              <div class="next-copy">
+                <div class="next-label">Siguiente video en</div>
+                <div class="next-title" id="nextTitle"></div>
+              </div>
+              <button class="next-cancel" id="nextCancel" type="button">Cancelar</button>
+            </div>
+          </div>
+          <div class="audio-display" id="audioDisplay" style="display:none;">
+            <div class="audio-art" id="audioArt">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
+            </div>
+            <div class="audio-title" id="audioTitle"></div>
+          </div>
+        </div>
+
+        <div class="controls" id="controlsBar">
+          <div class="seek-container" id="seekContainer">
+            <div class="seek-track" id="seekTrack">
+              <div class="seek-buffered" id="seekBuffered"></div>
+              <div class="seek-progress" id="seekProgress"></div>
+            </div>
+            <div class="seek-thumb" id="seekThumb"></div>
+            <div class="seek-tooltip" id="seekTooltip">0:00</div>
+          </div>
+          <div class="controls-row">
+            <button class="ctrl-btn play-btn" id="playBtn" title="Reproducir (Espacio)">
+              <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            </button>
+            <button class="ctrl-btn" id="prevBtn" title="Retroceder 10s">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+            </button>
+            <button class="ctrl-btn" id="nextBtn" title="Avanzar 10s">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+            </button>
+            <span class="time-label" id="timeCurrent">0:00</span>
+            <span class="time-label separator">/</span>
+            <span class="time-label" id="timeDuration">0:00</span>
+            <div class="controls-spacer"></div>
+            <div class="volume-group">
+              <button class="ctrl-btn" id="muteBtn" title="Silenciar (M)">
+                <svg id="iconVolume" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                <svg id="iconMuted" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+              </button>
+              <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.05" value="1">
+            </div>
+            <button class="ctrl-btn speed-btn" id="speedBtn" title="Velocidad (Shift+Flechas)">1x</button>
+            <button class="ctrl-btn" id="fullscreenBtn" title="Pantalla completa (F)">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="info-bar" id="infoBar">
+          <div class="info-text">
+            <div class="info-title" id="infoTitle"></div>
+            <div class="info-subtitle" id="infoSubtitle"></div>
+          </div>
+          <button class="mark-btn" id="markBtn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <span id="markLabel">Marcar completado</span>
+          </button>
+        </div>
+
+        <div class="static-viewer" id="staticViewer" style="display:none;">
+          <div class="viewer-toolbar">
+            <span class="viewer-label" id="viewerLabel"></span>
+            <a class="viewer-download ctrl-btn" id="viewerDownloadBtn" href="#" download title="Descargar archivo">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            </a>
+          </div>
+          <div class="viewer-content"></div>
+        </div>
+
+        <div class="attachments-area" id="attachmentsArea" style="display:none;">
+          <h3 class="attachments-title">Recursos de la leccion</h3>
+          <div class="attachments-list" id="attachmentsList"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div class="history-modal" id="historyModal" aria-hidden="true">
+    <div class="history-backdrop" data-action="close-history"></div>
+    <section class="history-panel" aria-label="Historial">
+      <div class="history-head">
+        <div>
+          <h2>Historial</h2>
+          <p>Tu avance guardado en este servidor local.</p>
+        </div>
+        <button class="icon-btn" data-action="close-history" title="Cerrar">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.3 5.71 12 12l6.3 6.29-1.41 1.41L10.59 13.41 4.29 19.7 2.88 18.29 9.17 12 2.88 5.71 4.29 4.3l6.3 6.29 6.3-6.29 1.41 1.41z"/></svg>
+        </button>
+      </div>
+      <div class="history-list" id="historyList"></div>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/mpegts.js@1.8.0/dist/mpegts.min.js"></script>
+  <script src="js/app.js?v=8"></script>
+</body>
+</html>
