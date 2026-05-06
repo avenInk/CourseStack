@@ -44,14 +44,17 @@ mimetypes.add_type('text/css', '.css')
 mimetypes.add_type('application/javascript', '.js')
 
 def find_courses_root(root):
-    """Return path to 'Cursos' subfolder if it exists (case-insensitive), else root."""
+    """Ensure 'Cursos' folder exists and return its path."""
+    path = os.path.join(root, 'Cursos')
     try:
         for name in os.listdir(root):
             if name.lower() == 'cursos' and os.path.isdir(os.path.join(root, name)):
                 return os.path.join(root, name)
     except OSError:
         pass
-    return root
+    if not os.path.exists(path):
+        os.makedirs(path)
+    return path
 
 
 class CourseTrackerHandler(http.server.BaseHTTPRequestHandler):

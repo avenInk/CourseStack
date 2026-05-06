@@ -52,7 +52,9 @@ Para acceder desde tu teléfono:
 
 ## 📂 ¿Cómo organizar mis cursos?
 
-Pon tus cursos dentro de una carpeta llamada **`Cursos`** (puedes usar mayúscula o minúscula, ambas funcionan). Esta carpeta debe estar en el mismo lugar que el archivo `iniciar.bat`.
+La aplicación utiliza **exclusivamente** una carpeta llamada **`Cursos`** para buscar tus lecciones. Esta carpeta ya viene incluida en la descarga (o se creará automáticamente la primera vez que abras el programa).
+
+**Para que tus cursos aparezcan en la aplicación, debes moverlos dentro de esta carpeta.**
 
 ### Estructura de ejemplo:
 
