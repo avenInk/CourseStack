@@ -34,6 +34,21 @@ Una aplicación sencilla que corre en tu computadora y te permite **ver tus vide
 
 ---
 
+### 📱 En tu Móvil (Celular / Tablet)
+
+¡La aplicación está totalmente optimizada para verse y funcionar perfecto en pantallas táctiles!
+
+Para acceder desde tu teléfono:
+1. Asegúrate de que **la aplicación esté corriendo en tu PC** (la ventana negra debe estar abierta).
+2. Asegúrate de que tanto tu PC como tu teléfono estén conectados **al mismo WiFi** (red local).
+3. Revisa la ventana negra en tu computadora; ahí verás una línea que dice algo como:
+   `📱 En tu Móvil: http://192.168.1.5:9999`
+4. Escribe esa dirección exacta (con todo y los números al final) en el navegador de tu celular (Safari, Chrome, etc.).
+
+> 🔒 **Nota de privacidad:** Esta dirección solo funciona dentro de tu propia casa/red. Nadie de afuera de internet puede ver tus cursos.
+
+---
+
 ## 📂 ¿Cómo organizar mis cursos?
 
 Pon tus cursos dentro de una carpeta llamada **`Cursos`** (puedes usar mayúscula o minúscula, ambas funcionan). Esta carpeta debe estar en el mismo lugar que el archivo `iniciar.bat`.
@@ -185,6 +200,12 @@ Sí, puedes poner tus cursos directamente en la carpeta de la aplicación o dent
   - En Mac: generalmente ya viene instalado.
 - Un navegador web moderno (Chrome, Edge, Firefox).
 - Los archivos de video o audio que quieras ver.
+
+---
+
+## 🔮 Próximamente
+
+Pronto añadiremos soporte para **configuraciones nativas**. Podrás personalizar los colores, el logo, el nombre de la aplicación y la apariencia general de la web directamente desde un panel de opciones, **¡sin necesidad de saber programar ni tocar código!**
 
 ---
 

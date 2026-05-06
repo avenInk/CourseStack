@@ -61,6 +61,10 @@ class CourseTrackerHandler(http.server.BaseHTTPRequestHandler):
         """Minimal logging."""
         pass
 
+    def log_error(self, format, *args):
+        """Silencia errores HTTP normales para no ensuciar la consola."""
+        pass
+
     def send_cors_headers(self):
         self.send_header('Access-Control-Allow-Origin', '*')
         self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
@@ -401,6 +405,14 @@ class ThreadedServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
     allow_reuse_address = True
     daemon_threads = True
 
+    def handle_error(self, request, client_address):
+        """Silencia errores de desconexión del cliente (comunes al cerrar o saltar video)."""
+        import sys
+        exctype, value = sys.exc_info()[:2]
+        if issubclass(exctype, OSError):
+            return
+        super().handle_error(request, client_address)
+
 
 def find_free_port(start, max_tries=20):
     import socket
@@ -413,19 +425,39 @@ def find_free_port(start, max_tries=20):
             continue
     return start
 
+def get_local_ip():
+    import socket
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        # doesn't even have to be reachable
+        s.connect(('10.255.255.255', 1))
+        IP = s.getsockname()[0]
+    except Exception:
+        IP = '127.0.0.1'
+    finally:
+        s.close()
+    return IP
+
 
 def main():
     os.chdir(ROOT)
     port = find_free_port(PORT)
-    if port != PORT:
-        print(f'Puerto {PORT} ocupado, usando {port}...')
-    courses_root = find_courses_root(ROOT)
-    courses_label = f'Cursos → {courses_root.replace("\\\\?\\", "")}' if courses_root != ROOT else ROOT.replace('\\\\?\\', '')
+    local_ip = get_local_ip()
 
-    print('Seguimiento de Cursos Local')
-    print(f'  Servidor: http://localhost:{port}')
-    print(f'  Carpeta:  {courses_label}')
-    print('  Ctrl+C para detener')
+    print('==================================================')
+    print(' 📱 Seguimiento de Cursos (Local)')
+    print('==================================================')
+    if port != PORT:
+        print(f' ⚠️ El puerto {PORT} estaba ocupado. Se usara el {port}.')
+        print('--------------------------------------------------')
+
+    print(f' 💻 En tu PC:     http://localhost:{port}')
+    if local_ip != '127.0.0.1':
+        print(f' 📱 En tu Móvil:  http://{local_ip}:{port}')
+        print('    (Debes estar conectado al mismo WiFi)')
+    print('--------------------------------------------------')
+    print(' 🛑 Cierra esta ventana negra para detener la app.')
+    print('==================================================')
     print()
 
     try:
