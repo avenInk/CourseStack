@@ -1,13 +1,16 @@
 @echo off
+chcp 65001 >nul
 echo.
 echo  ============================================
-echo   Seguimiento de Cursos Local
+echo   Iniciando CourseStack...
 echo  ============================================
 echo.
 cd /d "%~dp0"
-echo  Iniciando servidor en http://localhost:9999
-echo  Presiona Ctrl+C para detener
+
+echo  Buscando actualizaciones en la nube...
+git pull origin main >nul 2>&1
+
 echo.
-start http://localhost:9999
+echo  Arrancando servidor...
 python servidor.py
 pause

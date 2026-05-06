@@ -80,7 +80,6 @@ Pon tus cursos dentro de una carpeta llamada **`Cursos`** (puedes usar mayúscul
         └── 02 Tu primera canción.mp4
 ```
 
-> 📌 **Coloca una imagen aquí mostrando cómo se ve la carpeta en tu explorador de archivos**
 
 ---
 
@@ -104,7 +103,8 @@ La aplicación reconoce automáticamente los siguientes tipos de archivos:
 | `.m4v` | Video Apple |
 | `.webm` | Video web moderno |
 | `.mkv` | Matroska (muy común en descargas) |
-| `.ts` | Streams de video (formato de transmisión) |
+| `.ts` | No recomendable, el audio se desincroniza
+ |
 
 ### 🎵 Audio
 | Extensión | Descripción |
@@ -142,7 +142,6 @@ Al abrir la aplicación, verás las tarjetas de tus cursos con:
 - Cuántas lecciones tiene el curso y cuántas has terminado.
 - La última lección que viste.
 
-> 📌 **Coloca una imagen aquí mostrando la pantalla principal con los cursos**
 
 ### Reproducir una lección
 1. Haz clic en la tarjeta del curso que quieres ver.
@@ -150,7 +149,6 @@ Al abrir la aplicación, verás las tarjetas de tus cursos con:
 3. Haz clic en cualquier lección para reproducirla.
 4. Cuando termines de ver la lección, haz clic en el botón **"Marcar completado"** para registrar tu avance.
 
-> 📌 **Coloca una imagen aquí mostrando el reproductor con el menú lateral**
 
 ### Controles del reproductor
 
