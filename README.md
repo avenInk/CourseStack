@@ -12,6 +12,7 @@ Una aplicación sencilla que corre en tu computadora y te permite **ver tus vide
 2. Haz **doble clic** en el archivo llamado **`iniciar.bat`**.
 3. Se abrirá una ventana negra (símbolo del sistema) — **no la cierres**, es normal.
 4. Unos segundos después, se abrirá automáticamente tu navegador con la aplicación lista para usar.
+5. Como recomendación, cada que se actualice la carpeta de cursos, ya sea añadiendo, modificando o eliminando archivos, es recomendable cerrar y abrir de nuevo el programa, para cerrar correctamente el servidor es con CRTL + C y seleccionar en las opciones 's' y ENTER.
 
 > ⚠️ **Importante:** Mientras uses la aplicación, la ventana negra debe permanecer abierta. Si la cierras, la aplicación se detiene.
 
